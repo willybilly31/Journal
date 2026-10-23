@@ -4,13 +4,76 @@
 
 body {
     margin: 0;
-    padding: 2rem;
-    font-family: Arial, sans-serif;
+    padding: clamp(12px, 3vw, 32px);
+    font-family: 'Times New Roman', Times, serif;
     line-height: 1.6;
     color: #333;
-    background-color: #fff;
+    background-color: #fdf6ea;
 }
 
-h1 {
-    margin-top: 0;
+.Title {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 15px clamp(15px, 5vw, 60px);
+    border-radius: 10px;
+    text-align: center;
+    overflow-wrap: anywhere;
+
+    background-image: url('Images/paperassets/paper-title-strip.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Title h1 {
+    margin: 0;
+    font-size: clamp(26px, 5vw, 40px);
+}
+
+.entry-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: clamp(0px, 2vw, 20px);
+}
+
+.entry {
+    min-width: 0;
+    min-height: 300px;
+    padding: 25px clamp(12px, 3vw, 30px);
+    border-radius: 10px;
+    text-align: center;
+    overflow-wrap: anywhere;
+
+    background-image: url('Images/paperassets/paper-note-card.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.entry-image {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    height: 150px;
+    margin: 0 auto 12px;
+    object-fit: cover;
+    object-position: 50% 50%;
+    border-radius: 10px;
+    border: 2px solid #333;
+}
+
+.entry a {
+    display: inline-block;
+}
+
+/* Use one column on smaller windows. */
+@media (max-width: 700px) {
+    .entry-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
