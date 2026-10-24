@@ -10,5 +10,163 @@
     <header class="Title">
         <h1>Biodome</h1>
     </header>
+
+
+    <div class="back-button">
+        <a href="index.html"><b>Back</b></a>
+    </div>
+
+    <main class="articlecontainer">
+        <section class="carousel" aria-label="Biodome photos">
+            <div class="carousel-frame">
+                <img
+                    id="carousel-image"
+                    src="Images/Biodome Pics/BiodomePenguins.JPEG"
+                    alt="Penguins at the Montreal Biodome"
+                >
+            </div>
+
+            <div class="carousel-controls">
+                <button type="button" id="previous" aria-label="Previous photo">
+                    &#8592;
+                </button>
+
+                <span id="photo-counter" aria-live="polite"></span>
+
+                <button type="button" id="next" aria-label="Next photo">
+                    &#8594;
+                </button>
+            </div>
+        </section>
+
+        <article class="articletext">
+            <h2>My visit to the Biodome</h2>
+            <p>Montreal, Quebec — October 20th, 2026</p>
+
+            <p>Welcome to the Biodome!</p>
+
+            <p>This was a school trip with my classmates. We explored the different ecosystems and saw the animals that live in each one.
+                 Walking between the areas felt like travelling to different parts of the world because the temperature, plants,
+                  and surroundings changed along the way.</p>
+
+            <p>I really liked the Insectarium which was a very buitiful place to learn about insects. There was also a room full of butterflies that flew around you! Very cool!
+            </p>
+
+            <p>Throughout the visit, I took pictures of the animals and the places we explored. You can see some of those photos in the carousel beside this entry.</p>
+
+            <p>Overall this was super cool place to visit! Would reccomend coming, because its not just nature, they also have some space exhibits on the side which is cool!</p>
+        </article>
+    </main>
+
+    <script>
+        const photos = [
+    {
+        src: "Images/Biodome Pics/Flamingos.JPEG",
+        alt: "Flamingos"
+    },
+    {
+        src: "Images/Biodome Pics/FriendMe.JPEG",
+        alt: "Me and my friend"
+    },
+    {
+        src: "Images/Biodome Pics/BigSpider.JPEG",
+        alt: "A large spider"
+    },
+    {
+        src: "Images/Biodome Pics/Fish2.JPEG",
+        alt: "Fish"
+    },
+    {
+        src: "Images/Biodome Pics/StadeOlympique.JPEG",
+        alt: "Olympic Stadium"
+    },
+    {
+        src: "Images/Biodome Pics/Parrots2.JPEG",
+        alt: "Parrots"
+    },
+    {
+        src: "Images/Biodome Pics/Bee.JPEG",
+        alt: "A bee"
+    },
+    {
+        src: "Images/Biodome Pics/BiodomePenguins.JPEG",
+        alt: "Penguins at the Biodome"
+    },
+    {
+        src: "Images/Biodome Pics/RoachOnMyHand.JPEG",
+        alt: "A cockroach on my hand"
+    },
+    {
+        src: "Images/Biodome Pics/Fish3.JPEG",
+        alt: "Fish"
+    },
+    {
+        src: "Images/Biodome Pics/OlympiqueUnderBridge.JPEG",
+        alt: "Olympic Stadium viewed from under a bridge"
+    },
+    {
+        src: "Images/Biodome Pics/Beetles.JPEG",
+        alt: "Beetles"
+    },
+    {
+        src: "Images/Biodome Pics/Friend.JPEG",
+        alt: "My friend"
+    },
+    {
+        src: "Images/Biodome Pics/Sharky.JPEG",
+        alt: "A shark"
+    },
+    {
+        src: "Images/Biodome Pics/TerrifyingWasp.JPEG",
+        alt: "A wasp"
+    },
+    {
+        src: "Images/Biodome Pics/LotsOfFish.JPEG",
+        alt: "A group of fish"
+    },
+    {
+        src: "Images/Biodome Pics/Parrots.JPEG",
+        alt: "Parrots"
+    },
+    {
+        src: "Images/Biodome Pics/StadeOlympique1.JPEG",
+        alt: "Another view of Olympic Stadium"
+    },
+    {
+        src: "Images/Biodome Pics/MillePatte.JPEG",
+        alt: "A many-legged insect"
+    },
+    {
+        src: "Images/Biodome Pics/Fishy1.JPEG",
+        alt: "A fish"
+    }
+];
+
+        let currentPhoto = 0;
+
+        const image = document.getElementById("carousel-image");
+        const counter = document.getElementById("photo-counter");
+
+        function changePhoto(direction) {
+            currentPhoto =
+                (currentPhoto + direction + photos.length) % photos.length;
+
+            image.src = photos[currentPhoto].src;
+            image.alt = photos[currentPhoto].alt;
+
+            counter.textContent =
+                `${currentPhoto + 1} / ${photos.length}`;
+        }
+
+        document.getElementById("previous").addEventListener("click", () => {
+            changePhoto(-1);
+        });
+
+        document.getElementById("next").addEventListener("click", () => {
+            changePhoto(1);
+        });
+
+        changePhoto(0);
+    </script>
 </body>
 </html>

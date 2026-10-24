@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="Title">
+        <h1>Page Title</h1>
+    </header>
+
+    <div class="back-button">
+        <a href="index.html"><b>Back</b></a>
+    </div>
+
+    <main class="articlecontainer">
+        <section class="carousel" aria-label="Photo carousel">
+            <div class="carousel-frame">
+                <img
+                    id="carousel-image"
+                    src="https://placehold.co/800x600?text=Image+1"
+                    alt="Placeholder image 1"
+                >
+            </div>
+
+            <div class="carousel-controls">
+                <button type="button" id="previous" aria-label="Previous photo">
+                    &#8592;
+                </button>
+
+                <span id="photo-counter" aria-live="polite"></span>
+
+                <button type="button" id="next" aria-label="Next photo">
+                    &#8594;
+                </button>
+            </div>
+        </section>
+
+        <article class="articletext">
+            <h2>Entry Title</h2>
+            <p>City, Province — Month Day, Year</p>
+
+            <p>Introductory text goes here!</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit
+                esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.</p>
+
+            <p>Integer nec odio. Praesent libero. Sed cursus ante dapibus
+                diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                Duis sagittis ipsum. Praesent mauris.</p>
+
+            <p>Fusce nec tellus sed augue semper porta. Mauris massa.
+                Vestibulum lacinia arcu eget nulla. Class aptent taciti
+                sociosqu ad litora torquent per conubia nostra.</p>
+        </article>
+    </main>
+
+    <script>
+        const photos = [
+            {
+                src: "https://placehold.co/800x600?text=Image+1",
+                alt: "Placeholder image 1"
+            },
+            {
+                src: "https://placehold.co/800x600?text=Image+2",
+                alt: "Placeholder image 2"
+            },
+            {
+                src: "https://placehold.co/800x600?text=Image+3",
+                alt: "Placeholder image 3"
+            },
+            {
+                src: "https://placehold.co/800x600?text=Image+4",
+                alt: "Placeholder image 4"
+            },
+            {
+                src: "https://placehold.co/800x600?text=Image+5",
+                alt: "Placeholder image 5"
+            }
+        ];
+
+        let currentPhoto = 0;
+
+        const image = document.getElementById("carousel-image");
+        const counter = document.getElementById("photo-counter");
+
+        function changePhoto(direction) {
+            currentPhoto =
+                (currentPhoto + direction + photos.length) % photos.length;
+
+            image.src = photos[currentPhoto].src;
+            image.alt = photos[currentPhoto].alt;
+
+            counter.textContent =
+                `${currentPhoto + 1} / ${photos.length}`;
+        }
+
+        document.getElementById("previous").addEventListener("click", () => {
+            changePhoto(-1);
+        });
+
+        document.getElementById("next").addEventListener("click", () => {
+            changePhoto(1);
+        });
+
+        changePhoto(0);
+    </script>
+</body>
+</html>
