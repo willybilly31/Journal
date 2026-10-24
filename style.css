@@ -180,3 +180,180 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
+
+
+
+.Title,
+.entry,
+.articletext {
+    position: relative;
+}
+
+.Title::before,
+.Title::after,
+.entry::before,
+.entry::after,
+.articletext::before,
+.articletext::after,
+.carousel::before {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    background-repeat: no-repeat;
+}
+
+/* A flowering branch and a small bouquet frame each page title. */
+.Title::before {
+    width: 105px;
+    height: 135px;
+    top: -24px;
+    left: -38px;
+    background-image: var(--flower-branch);
+    background-size: contain;
+    transform: rotate(-24deg);
+}
+
+.Title::after {
+    width: 115px;
+    height: 94px;
+    top: -5px;
+    right: -28px;
+    background-image:
+        var(--flower-pink), var(--flower-blush), var(--flower-striped);
+    background-size: 54px auto, 68px auto, 48px auto;
+    background-position: right bottom, left center, right 7px top;
+    transform: rotate(12deg);
+}
+
+/* Mix overlapping bouquets with single blooms on the journal cards. */
+.entry::before {
+    width: 96px;
+    height: 80px;
+    top: -17px;
+    left: -12px;
+    background-image: var(--flower-striped), var(--flower-rose), var(--flower-blush);
+    background-size: 58px auto, 48px auto, 43px auto;
+    background-position: left top, right bottom, right top;
+    transform: rotate(-13deg);
+}
+
+.entry::after {
+    width: 62px;
+    height: 64px;
+    right: -8px;
+    bottom: -10px;
+    background-image: var(--flower-pink);
+    background-size: contain;
+    transform: rotate(20deg);
+}
+
+.entry:nth-child(even)::before {
+    background-image: var(--flower-blush);
+    background-size: 65px auto;
+    background-position: left top;
+    transform: rotate(18deg);
+}
+
+.entry:nth-child(even)::after {
+    width: 92px;
+    height: 76px;
+    background-image: var(--flower-rose), var(--flower-striped);
+    background-size: 55px auto, 60px auto;
+    background-position: left bottom, right top;
+    transform: rotate(-12deg);
+}
+
+/* Flowers follow the photo and writing edges on both entry pages. */
+.articletext::before {
+    width: 92px;
+    height: 78px;
+    top: -20px;
+    right: -6px;
+    background-image: var(--flower-striped), var(--flower-pink), var(--flower-blush);
+    background-size: 54px auto, 43px auto, 46px auto;
+    background-position: right top, left center, right bottom;
+    transform: rotate(14deg);
+}
+
+.articletext::after {
+    width: 67px;
+    height: 68px;
+    left: -8px;
+    bottom: -8px;
+    background-image: var(--flower-blush);
+    background-size: contain;
+    transform: rotate(-20deg);
+}
+
+.carousel::before {
+    width: 82px;
+    height: 83px;
+    left: -10px;
+    top: -18px;
+    z-index: 1;
+    background-image: var(--flower-rose), var(--flower-blush);
+    background-size: 57px auto, 42px auto;
+    background-position: left top, right bottom;
+    transform: rotate(-18deg);
+}
+
+@media (max-width: 700px) {
+    body {
+        background-size:
+            36px auto, 30px auto,
+            65px auto, 42px auto,
+            34px auto, 44px auto,
+            28px auto;
+    }
+
+    .Title::before {
+        width: 60px;
+        height: 78px;
+        left: -7px;
+        top: -10px;
+        transform: rotate(-16deg);
+    }
+
+    .Title::after {
+        width: 65px;
+        height: 60px;
+        right: -5px;
+        top: -7px;
+        background-size: 32px auto, 39px auto, 28px auto;
+    }
+
+    .entry::before,
+    .articletext::before {
+        width: 70px;
+        height: 57px;
+        background-size: 42px auto, 35px auto, 31px auto;
+    }
+
+    .entry::before {
+        left: -6px;
+    }
+
+    .entry:nth-child(even)::before {
+        background-size: 48px auto;
+    }
+
+    .entry::after,
+    .articletext::after {
+        width: 46px;
+        height: 48px;
+        right: -5px;
+    }
+
+    .entry:nth-child(even)::after {
+        width: 66px;
+        height: 55px;
+        background-size: 40px auto, 43px auto;
+    }
+
+    .carousel::before {
+        width: 60px;
+        height: 60px;
+        left: -5px;
+        background-size: 42px auto, 31px auto;
+    }
+}

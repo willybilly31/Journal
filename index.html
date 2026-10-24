@@ -5,6 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Will's Journal</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="64x64" href="Images/Flowers/favicon.png">
+    <style>
+        /* Flower stickers: backgrounds and absolute decorations leave the layout intact. */
+        body {
+            --flower-branch: url('Images/Flowers/Pink Flowers/1.png');
+            --flower-pink: url('Images/Flowers/Pink Flowers/2.png');
+            --flower-striped: url('Images/Flowers/Pink Flowers/3.png');
+            --flower-blush: url('Images/Flowers/Pink Flowers/4.png');
+            --flower-rose: url('Images/Flowers/Pink Flowers/5.png');
+
+            background-image:
+                var(--flower-blush), var(--flower-pink),
+                var(--flower-branch), var(--flower-striped),
+                var(--flower-rose), var(--flower-blush),
+                var(--flower-pink);
+            background-repeat: no-repeat;
+            background-size:
+                65px auto, 48px auto,
+                135px auto, 72px auto,
+                58px auto, 85px auto,
+                42px auto;
+            background-position:
+                left 3% top 22px, right 5% top 105px,
+                left -35px top 40%, right -12px top 48%,
+                left 3% top 78%, right 4% bottom 12px,
+                center bottom 4px;
+        }
+    </style>
 </head>
 <body>
     <header class="Title">
